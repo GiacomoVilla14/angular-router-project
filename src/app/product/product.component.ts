@@ -12,8 +12,10 @@ export class ProductComponent implements OnInit, OnDestroy {
   constructor() {}
 
   ngOnInit() {
-    this.intervalSubscription = interval(1000).subscribe((count) => {
-      console.log(count);
+    this.intervalSubscription = interval(1000).subscribe({
+      next(value) {
+        console.log(value);
+      },
     });
   }
   ngOnDestroy() {

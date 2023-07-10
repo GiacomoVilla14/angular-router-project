@@ -9,6 +9,7 @@ import { ProductComponent } from './product/product.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { LoginComponent } from './login/login.component';
 import { ProfileComponent } from './profile/profile.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -18,13 +19,10 @@ import { ProfileComponent } from './profile/profile.component';
     ProductComponent,
     CheckoutComponent,
     LoginComponent,
-    ProfileComponent
+    ProfileComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
+  imports: [BrowserModule, HttpClientModule, AppRoutingModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
