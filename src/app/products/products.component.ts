@@ -1,7 +1,9 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import { ProductsRoot } from '../models';
-import { HttpClient } from '@angular/common/http';
-import { Subscription } from 'rxjs';
+import {Component, OnDestroy, OnInit} from '@angular/core';
+import {ProductsRoot} from '../models';
+import {HttpClient} from '@angular/common/http';
+import {Subscription} from 'rxjs';
+import {Router} from "@angular/router";
+
 @Component({
   selector: 'app-products',
   templateUrl: './products.component.html',
@@ -21,7 +23,9 @@ export class ProductsComponent implements OnInit, OnDestroy {
   //       this.productsRoot = json;
   //     });
   // }
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private router: Router) {
+  }
+
   ngOnInit() {
     this.httpSubscription = this.http
       .get<ProductsRoot>('https://dummyjson.com/products')
@@ -32,7 +36,12 @@ export class ProductsComponent implements OnInit, OnDestroy {
         },
       });
   }
+
   ngOnDestroy() {
     this.httpSubscription?.unsubscribe();
+  }
+
+  goToProduct(id: number) {
+    this.router.navigate(['/products', id])
   }
 }

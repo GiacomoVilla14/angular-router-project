@@ -11,7 +11,7 @@ import {myCanActivate} from './auth-guard.service';
 const routes: Routes = [
   {path: '', component: HomeComponent},
   {path: 'products', component: ProductsComponent},
-  {path: 'product', component: ProductComponent},
+  {path: 'products/:id', component: ProductComponent},
   {path: 'login', component: LoginComponent},
   {path: 'checkout', component: CheckoutComponent},
   {

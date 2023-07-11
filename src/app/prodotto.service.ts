@@ -8,7 +8,7 @@ export class ProdottoService {
   public observable?: Observable<number>
 
   constructor() {
-    this.observable = new Observable<number>(subscriber => {
+    this.observable = new Observable(subscriber => {
       let count = 0
       setInterval(() => {
         subscriber.next(count)
