@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
+import {NgForm} from "@angular/forms";
 
 @Component({
   selector: 'app-checkout',
@@ -6,5 +7,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./checkout.component.css']
 })
 export class CheckoutComponent {
-
+  onSubmit(formElement: NgForm) {
+    console.log(formElement)
+  }
 }

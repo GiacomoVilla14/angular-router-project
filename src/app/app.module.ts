@@ -11,6 +11,7 @@ import { LoginComponent } from './login/login.component';
 import { ProfileComponent } from './profile/profile.component';
 import { HttpClientModule } from '@angular/common/http';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -23,7 +24,7 @@ import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
     ProfileComponent,
     PagenotfoundComponent,
   ],
-  imports: [BrowserModule, HttpClientModule, AppRoutingModule],
+  imports: [BrowserModule, HttpClientModule, AppRoutingModule, FormsModule],
   providers: [],
   bootstrap: [AppComponent],
 })
