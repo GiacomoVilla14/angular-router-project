@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, DoCheck, OnInit, ViewChild} from '@angular/core';
 import {NgForm} from "@angular/forms";
 
 @Component({
@@ -6,8 +6,10 @@ import {NgForm} from "@angular/forms";
   templateUrl: './checkout.component.html',
   styleUrls: ['./checkout.component.css']
 })
-export class CheckoutComponent {
-  onSubmit(formElement: NgForm) {
-    console.log(formElement)
+export class CheckoutComponent /*implements OnInit, DoCheck*/ {
+  @ViewChild("form") checkoutForm?: NgForm
+
+  onSubmit() {
+    console.log(this.checkoutForm)
   }
 }
