@@ -7,6 +7,7 @@ import {LoginComponent} from './login/login.component';
 import {CheckoutComponent} from './checkout/checkout.component';
 import {ProfileComponent} from './profile/profile.component';
 import {myCanActivate} from './auth-guard.service';
+import {PagenotfoundComponent} from "./pagenotfound/pagenotfound.component";
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -19,6 +20,10 @@ const routes: Routes = [
     component: ProfileComponent,
     canActivate: [myCanActivate],
   },
+  {
+    path:'**',
+    component: PagenotfoundComponent
+  }
 ];
 
 @NgModule({
