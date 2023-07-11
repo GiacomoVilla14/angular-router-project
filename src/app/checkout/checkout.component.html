@@ -180,9 +180,10 @@
                 id="firstName"
                 placeholder=""
                 value=""
-                required=""
+                required
+                #firstName="ngModel"
               />
-              <div class="invalid-feedback">
+              <div class="help-block" *ngIf="!firstName.valid && firstName.touched">
                 Valid first name is required.
               </div>
             </div>
@@ -198,8 +199,11 @@
                 placeholder=""
                 value=""
                 required=""
+                #lastName="ngModel"
               />
-              <div class="invalid-feedback">Valid last name is required.</div>
+              <div class="help-block" *ngIf="!lastName.valid && lastName.touched">
+                Valid last name is required.
+              </div>
             </div>
 
             <div class="col-12">
@@ -214,8 +218,9 @@
                   id="username"
                   placeholder="Username"
                   required=""
+                  #username="ngModel"
                 />
-                <div class="invalid-feedback">Your username is required.</div>
+                <div class="help-block" *ngIf="!username.valid && username.touched">Your username is required.</div>
               </div>
             </div>
 
@@ -226,13 +231,15 @@
               >
               <input
                 ngModel
-                name="email"
-                type="email"
+                name="mail"
+
                 class="form-control"
                 id="email"
                 placeholder="you@example.com"
+                required
+                #mail="ngModel"
               />
-              <div class="invalid-feedback">
+              <div class="help-block" *ngIf="!mail.valid && mail.touched">
                 Please enter a valid email address for shipping updates.
               </div>
             </div>
@@ -246,9 +253,10 @@
                 class="form-control"
                 id="address"
                 placeholder="1234 Main St"
-                required=""
+                required
+                #address="ngModel"
               />
-              <div class="invalid-feedback">
+              <div class="help-block" *ngIf="!address.valid && address.touched">
                 Please enter your shipping address.
               </div>
             </div>
@@ -420,7 +428,7 @@
 
           <hr class="my-4"/>
 
-          <button class="w-100 btn btn-primary btn-lg" type="submit">
+          <button [disabled]="!form.valid" class="w-100 btn btn-primary btn-lg" type="submit">
             Continue to checkout
           </button>
         </form>

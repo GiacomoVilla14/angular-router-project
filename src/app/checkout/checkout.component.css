@@ -1,4 +1,11 @@
 .container {
-    max-width: 960px;
-  }
-  
+  max-width: 960px;
+}
+
+input.ng-invalid.ng-touched {
+  border: 1px solid red;
+}
+
+.help-block {
+  color: red;
+}
