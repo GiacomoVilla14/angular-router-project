@@ -13,6 +13,12 @@ export class ProdottoService {
       setInterval(() => {
         subscriber.next(count)
         count++
+        if (count > 5) {
+          subscriber.complete()
+        }
+        if (count > 3) {
+          subscriber.error(new Error("Errore"))
+        }
       }, 1000)
     })
   }
