@@ -40,13 +40,27 @@ import {ActivatedRoute} from "@angular/router";
   }
 }*/
 
-export class ProductComponent /*implements OnInit, OnDestroy*/ {
+export class ProductComponent implements OnInit, OnDestroy {
+  id?: number
+  subscription?: Subscription
 
-  constructor(private route: ActivatedRoute) {
+  constructor(private route: ActivatedRoute,) {
     const {id} = route.snapshot.params
-    alert("Hai aperto l'id: " + id)
+    this.id = id
+
+
   }
 
+  ngOnInit() {
+    this.subscription = this.route.params.subscribe(params => {
+      const {id} = params
+      this.id = id
+    })
+  }
+
+  ngOnDestroy() {
+    this.subscription?.unsubscribe()
+  }
 
 }
 
